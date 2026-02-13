@@ -2775,6 +2775,7 @@ bool Simulation::TransitionPhase(int i, const Neighbourhood &neighbourhood)
 					t = PT_PSTS;
 				}else{
 					t = parts[i].ctype;
+					parts[i].ctype = 0;
 				}
 			}
 			else s = 0;
