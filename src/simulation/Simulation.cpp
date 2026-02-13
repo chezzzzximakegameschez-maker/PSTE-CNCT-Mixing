@@ -2770,6 +2770,12 @@ bool Simulation::TransitionPhase(int i, const Neighbourhood &neighbourhood)
 				else if (pv[y/CELL][x/CELL]>1.0f && parts[i].tmp==1)
 					t = PT_BRMT;
 				else s = 0;
+			}else if(t == PT_PSTE){
+				if(parts[i].ctype == 0){
+					t = PT_PSTS;
+				}else{
+					t = parts[i].ctype;
+				}
 			}
 			else s = 0;
 		} else if (elements[t].LowPressureTransition != NT && pv[y/CELL][x/CELL]<elements[t].LowPressure && gravtot<=(elements[t].LowPressure/4.0f)) {
